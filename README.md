@@ -7,6 +7,7 @@ A high-performance Java-based system for storing and retrieving 3D Secure card r
 - Java 17 or higher
 - Maven 3.6 or higher
 - MySQL 8.0+
+- Redis 8.0
 
 ## 🛠️ Quick Start
 
