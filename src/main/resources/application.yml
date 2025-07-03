@@ -83,5 +83,15 @@ logging:
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
     name: logs/secure3d.log
-    max-size: 10MB
-    max-history: 30
+  logback:
+    rollingpolicy:
+      max-history: 30
+      max-file-size: 10MB
+
+# Data Initialization Configuration
+app:
+  data:
+    init:
+      enabled: true          # Enable/disable init
+      file: classpath:700k-pres.json.data  # Data file path
+      clear-existing: false     # Clear before init
