@@ -42,3 +42,31 @@ The application will start on `http://localhost:8080`
 
 - Swagger UI: `http://localhost:8080/swagger-ui.html`
 - OpenAPI Spec: `http://localhost:8080/api-docs`
+
+## 📖 API Usage
+
+### 1. Lookup Card Range by PAN
+
+```bash
+curl "http://localhost:8080/api/v1/3d-secure/lookup?pan=4000020000000010"
+```
+
+**Response:**
+```json
+{
+  "startRange": 4000020000000000,
+  "endRange": 4000020009999999,
+  "actionInd": "A",
+  "acsEndProtocolVersion": "2.1.0",
+  "threeDSMethodURL": "https://secure4.arcot.com/content-server/api/tds2/txn/browser/v1/tds-method",
+  "acsStartProtocolVersion": "2.1.0",
+  "acsInfoInd": [
+    "01",
+    "02"
+  ]
+}
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
