@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,7 +46,7 @@ public class LookUpServiceImplTest {
         testCardRangeEntity.setThreeDsMethodUrl("https://example.com/3ds");
         testCardRangeEntity.setAcsEndProtocolVersion("2.2.0");
         testCardRangeEntity.setAcsStartProtocolVersion("2.1.0");
-        testCardRangeEntity.setAcsInfoInd("01,02,03");
+        testCardRangeEntity.setAcsInfoInd(List.of(new String[]{"01", "02", "03"}));
 
         testCardRangeDTO = new CardRangeDataDTO();
         testCardRangeDTO.setStartRange(1234567890000000L);
@@ -54,7 +55,7 @@ public class LookUpServiceImplTest {
         testCardRangeDTO.setThreeDsMethodUrl("https://example.com/3ds");
         testCardRangeDTO.setAcsEndProtocolVersion("2.2.0");
         testCardRangeDTO.setAcsStartProtocolVersion("2.1.0");
-        testCardRangeDTO.setAcsInfoInd("01,02,03");
+        testCardRangeDTO.setAcsInfoInd(List.of(new String[]{"01", "02", "03"}));
     }
 
     // Test cases for successful cache hit

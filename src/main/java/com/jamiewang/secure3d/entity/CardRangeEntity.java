@@ -2,10 +2,10 @@ package com.jamiewang.secure3d.entity;
 
 import com.jamiewang.secure3d.util.IntervalData;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "card_range", indexes = {
@@ -19,11 +19,9 @@ public class CardRangeEntity implements IntervalData {
     private Long id;
 
     @Column(name = "start_range", nullable = false)
-    @NotBlank(message = "Start range cannot be blank")
     private Long startRange;
 
     @Column(name = "end_range", nullable = false)
-    @NotBlank(message = "End range cannot be blank")
     private Long endRange;
 
     @Column(name = "action_ind", length = 1)
@@ -38,8 +36,10 @@ public class CardRangeEntity implements IntervalData {
     @Column(name = "acs_start_protocol_version", length = 20)
     private String acsStartProtocolVersion;
 
-    @Column(name = "acs_info")
-    private String acsInfoInd;
+    @ElementCollection
+    @CollectionTable(name = "acs_info",
+            joinColumns = @JoinColumn(name = "card_range_id"))
+    private List<String> acsInfoInd;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;

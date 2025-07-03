@@ -16,15 +16,12 @@ public class CachedRecordEntity {
     private Long id;
 
     @Column(name = "pan", nullable = false)
-    @NotBlank(message = "PAN cannot be blank")
     private Long pan;
 
     @Column(name = "start_range", nullable = false)
-    @NotBlank(message = "Start range cannot be blank")
     private Long startRange;
 
     @Column(name = "end_range", nullable = false)
-    @NotBlank(message = "End range cannot be blank")
     private Long endRange;
 
     @Column(name = "is_valid", nullable = false)

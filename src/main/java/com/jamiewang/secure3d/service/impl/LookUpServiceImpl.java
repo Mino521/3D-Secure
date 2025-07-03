@@ -30,7 +30,7 @@ public class LookUpServiceImpl implements ILookUpService {
      * @param pan Primary Account Number
      * @return Optional containing the lookup response, empty if not found
      */
-    @Transactional(readOnly = true)
+    @Transactional
     public Optional<CardRangeDataDTO> lookupByPan(Long pan) {
         log.debug("Looking up card range for PAN: {}", pan);
 
@@ -56,6 +56,7 @@ public class LookUpServiceImpl implements ILookUpService {
 
             // Write to cache
             redisService.writeOne(LOOK_UP_FUNC_PREFIX+String.valueOf(pan), dto);
+            // TODO: Write a line of record to cached_record table.
 
             return Optional.of(dto);
         }

@@ -87,3 +87,11 @@ logging:
     rollingpolicy:
       max-history: 30
       max-file-size: 10MB
+
+# Data Initialization Configuration
+app:
+  data:
+    init:
+      enabled: true          # Enable/disable init
+      file: classpath:700k-pres.json.data  # Data file path
+      clear-existing: false     # Clear before init

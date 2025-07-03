@@ -27,6 +27,6 @@ public class CardRangeDataDTO {
     private String acsStartProtocolVersion;
 
     @JsonProperty("acsInfoInd")
-    private String acsInfoInd;
+    private List<String> acsInfoInd;
 
 }
